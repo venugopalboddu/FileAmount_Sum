@@ -1,0 +1,31 @@
+<input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />
+<!-- <button class="btn btn-success" (click)="call()">Upload</button> -->
+<div *ngIf="records.length > 0">
+  <h3>Total Amount: {{sum}}</h3>
+<table class="minimalistBlack">
+  <thead>
+    <tr>
+      <th>Name of counterparty </th>
+      <th>Email of counterparty </th>
+      <th>Phone number of counterparty </th>
+      <th>Source account currency </th>
+      <th>Recipient account currency </th>
+      <th>Amount </th>
+      <th>Schedule date </th>
+      <th>Reference </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of records">
+      <td> <span>{{record.NameOfCounterparty}}</span></td>
+      <td> <span>{{record.EmailOfCounterparty}}</span></td>
+      <td> <span>{{record.PhoneNumberOfCounterparty}}</span></td>
+      <td> <span>{{record.SourceAccountCurrency}}</span> </td>
+      <td> <span>{{record.RecipientAccountCurrency}}</span> </td>
+      <td> <span><input type="text" [(ngModel)]="record.Amount" (change)="add($event)"/></span> </td>
+      <td> <span>{{record.ScheduleDate}}</span> </td>
+      <td> <span>{{record.Reference}}</span> </td>
+    </tr>
+  </tbody>
+</table>
+</div>
