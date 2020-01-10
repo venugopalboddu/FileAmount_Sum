@@ -1,0 +1,28 @@
+
+<h3>Total Amount: {{sum}}</h3><br/>
+<table class="table" border="1">
+  <thead>
+    <tr>
+      <th>Name of counterparty </th>
+      <th>Email of counterparty </th>
+      <th>Phone number of counterparty </th>
+      <th>Source account currency </th>
+      <th>Recipient account currency </th>
+      <th>Amount </th>
+      <th>Schedule date </th>
+      <th>Reference </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of list">
+      <td> <span>{{record.NameOfCounterparty}}</span></td>
+      <td> <span>{{record.EmailOfCounterparty}}</span></td>
+      <td> <span>{{record.PhoneNumberOfCounterparty}}</span></td>
+      <td> <span>{{record.SourceAccountCurrency}}</span> </td>
+      <td> <span>{{record.RecipientAccountCurrency}}</span> </td>
+      <td> <span><input type="text" [(ngModel)]="record.Amount" (keyup)="add($event)"/></span> </td>
+      <td> <span>{{record.ScheduleDate}}</span> </td>
+      <td> <span>{{record.Reference}}</span> </td>
+    </tr>
+  </tbody>
+</table>
